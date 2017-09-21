@@ -1,0 +1,45 @@
+header {
+  padding: $spacing-unit*2 0;
+  background-color: $primary-color;
+  .container {
+    margin: auto;
+    max-width: $max-width;
+    padding: 0 $main-horizontal-padding;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  nav {
+    li {
+      display: inline-block;
+      margin-right: $spacing-unit*2;
+      a {
+        font-size: 1.2rem;
+        color: #ffffff;
+        &:after {
+          display: block;
+          content: "";
+          height: 2px;
+          width: 100%;
+          background: #ffffff;
+          transform: scaleX(0);
+          transition: transform .3s;
+        }
+        &:hover {
+          &:after {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+  }
+}
