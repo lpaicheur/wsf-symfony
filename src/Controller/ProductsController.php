@@ -3,13 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Form\ProductType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
-use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProductsController extends Controller
@@ -33,14 +32,8 @@ class ProductsController extends Controller
     */
     public function addProductAction(Request $request)
     {
-      $form = $this->createFormBuilder(new Product)
-        ->add('name')
-        ->add('price')
-        ->add('description', CKEditorType::class)
-        ->add('category')
-        ->add('image', FileType::class)
-        ->add('submit', SubmitType::class)
-        ->getForm();
+
+      $form = $this->createForm(ProductType::class, new Product);
 
       $form->handleRequest($request);
 
