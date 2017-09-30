@@ -45,6 +45,7 @@ class Product
 
     /**
     * @Assert\NotBlank()
+    * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
     */
     private $category;
