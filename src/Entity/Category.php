@@ -72,12 +72,4 @@ class Category
     {
       return $this->products;
     }
-
-    /**
-     * @param Collection $products
-    */
-    public function setProducts($products)
-    {
-        $this->products = $products;
-    }
 }
