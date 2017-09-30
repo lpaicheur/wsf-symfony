@@ -7,13 +7,17 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * @ApiResource
  * @ORM\Entity()
  * @ORM\Table(name="product")
+ * @ApiResource
 */
 
 class Product
 {
+  public function __toString()
+  {
+      return $this->name;
+  }
     /**
     * @ORM\Column(type="integer")
     * @ORM\Id
@@ -41,9 +45,7 @@ class Product
 
     /**
     * @Assert\NotBlank()
-    * @ORM\Column(type="integer")
     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
-    * @ORM\JoinColumn(name="category", referencedColumnName="id")
     */
     private $category;
 
@@ -108,12 +110,12 @@ class Product
     /**
     * @return int
     */
-    public function getCategory(): ?string
+    public function getCategory()
     {
 				return $this->category;
     }
 
-    public function setCategory(?int $id) {
+    public function setCategory($id) {
       return $this->category = $id;
     }
 
