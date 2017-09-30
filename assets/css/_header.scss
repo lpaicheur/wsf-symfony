@@ -34,6 +34,7 @@ header {
           transform: scaleX(0);
           transition: transform .3s;
         }
+        &.active,
         &:hover {
           &:after {
             transform: scaleX(1);

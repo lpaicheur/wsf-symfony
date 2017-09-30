@@ -1,7 +1,6 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-  {% dump app %}
   <h1>Home</h1>
   <a href="{{ path('products') }}">View products</a>
   {% for product in products %}

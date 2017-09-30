@@ -18,8 +18,10 @@
         </a>
       <nav>
         <ul>
-          <li><a href="{{ path('home') }}">Accueil</a></li>
-          <li><a href="{{ path('products') }}">Produits</a></li>
+          <li>
+            <a class="{{ app.request.attributes.get('_route') == 'home' ? 'active' : '' }}" href="{{ path('home') }}">Accueil</a>
+          </li>
+          <li><a class="{{ app.request.attributes.get('_route') == 'products' ? 'active' : '' }}" href="{{ path('products') }}">Produits</a></li>
         </ul>
       </nav>
     </div>
