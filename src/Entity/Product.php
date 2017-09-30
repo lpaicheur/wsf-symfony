@@ -4,16 +4,26 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * @ApiResource
  * @ORM\Entity()
  * @ORM\Table(name="product")
+ * @ApiResource
 */
 
 class Product
 {
+  public function __construct()
+  {
+      $this->comments = new ArrayCollection();
+  }
+
+  public function __toString()
+  {
+      return $this->name;
+  }
     /**
     * @ORM\Column(type="integer")
     * @ORM\Id
@@ -41,21 +51,23 @@ class Product
 
     /**
     * @Assert\NotBlank()
-    * @ORM\Column(type="integer")
-    * @ORM\ManyToOne(targetEntity="App\Entity\Category")
+    * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
     * @ORM\JoinColumn(name="category", referencedColumnName="id")
     */
     private $category;
 
     /**
     * @Assert\NotBlank()
-    * @Assert\Image()
     * @ORM\Column(type="string")
     *
     * @var string
     */
     private $image;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="product")
+    */
+    private $comments;
 
     /**
     * @return int
@@ -108,20 +120,32 @@ class Product
     /**
     * @return int
     */
-    public function getCategory(): ?string
+    public function getCategory()
     {
 				return $this->category;
     }
 
-    public function setCategory(?int $id) {
+    public function setCategory($id) {
       return $this->category = $id;
     }
 
-    public function getImage() {
+    public function getImage(): ?string
+    {
       return $this->image;
     }
 
-    public function setImage($image) {
+    public function setImage(string $image)
+    {
       return $this->image = $image;
     }
+
+    public function getComments()
+    {
+      return $this->comments;
+    }
+
+    // public function setComments($comments)
+    // {
+    //   return $this->comments = $comments;
+    // }
 }
