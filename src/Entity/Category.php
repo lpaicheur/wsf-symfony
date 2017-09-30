@@ -68,16 +68,8 @@ class Category
     /**
      * @return Collection
     */
-    public function getProducts()
+    public function getProducts(): ArrayCollection
     {
       return $this->products;
-    }
-
-    /**
-     * @param Collection $products
-    */
-    public function setProducts($products)
-    {
-        $this->products = $products;
     }
 }

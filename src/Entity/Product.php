@@ -46,7 +46,7 @@ class Product
     /**
     * @Assert\NotBlank()
     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
-    * @ORM\ManyToOne(targetEntity="App\Entity\Category")
+    * @ORM\JoinColumn(name="category", referencedColumnName="id")
     */
     private $category;
 
@@ -120,11 +120,13 @@ class Product
       return $this->category = $id;
     }
 
-    public function getImage() {
+    public function getImage(): ?string
+    {
       return $this->image;
     }
 
-    public function setImage($image) {
+    public function setImage(string $image)
+    {
       return $this->image = $image;
     }
 }
