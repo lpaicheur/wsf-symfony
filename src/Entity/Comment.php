@@ -60,9 +60,6 @@ class Comment
       return $this->description = $description;
   }
 
-  /**
-    * @return string
-  */
   public function getProduct()
   {
       return $this->product;

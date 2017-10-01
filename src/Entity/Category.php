@@ -65,6 +65,7 @@ class Category
     {
         $this->name = $name;
     }
+
     /**
      * @return Collection
     */
