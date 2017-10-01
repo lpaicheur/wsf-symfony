@@ -10,5 +10,8 @@
   {% for comment in product.comments %}
     <p>{{ comment.description }}</p>
   {% endfor %}
+  {{ form_start(form) }}
+  {{ form_widget(form) }}
+  {{ form_end(form) }}
 </div>
 {% endblock %}
