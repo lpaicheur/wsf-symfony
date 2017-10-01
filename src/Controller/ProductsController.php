@@ -24,7 +24,7 @@ class ProductsController extends Controller
             ->getRepository(Product::class)
             ->findAll();
 
-        return $this->render('products.html.twig', array(
+        return $this->render('Product/list.html.twig', array(
             'products' => $products,
         ));
     }
@@ -55,7 +55,7 @@ class ProductsController extends Controller
         return $this->redirectToRoute('products');
       }
 
-      return $this->render('addProduct.html.twig', array(
+      return $this->render('Product/add.html.twig', array(
           'form' => $form->createView(),
       ));
     }
@@ -87,7 +87,7 @@ class ProductsController extends Controller
           return $this->redirect($this->generateUrl('singleProduct', array('id' => $id)));
         }
 
-        return $this->render('singleProduct.html.twig', array(
+        return $this->render('Product/single.html.twig', array(
             'product' => $products[0],
             'form' => $form->createView(),
         ));

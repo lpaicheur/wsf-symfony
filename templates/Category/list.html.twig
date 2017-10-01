@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  <h1>Categories</h1>
+  <div class="mdl-grid">
+    {% for category in categories %}
+      <div class="mdl-cell mdl-cell--2-col">
+        <a href="{{ path('singleCategory', {id: category.id}) }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+          {{ category.name }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

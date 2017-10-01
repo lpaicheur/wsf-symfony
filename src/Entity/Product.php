@@ -58,6 +58,7 @@ class Product
 
     /**
     * @Assert\NotBlank()
+    * @Assert\Image()
     * @ORM\Column(type="string")
     *
     * @var string
@@ -129,12 +130,12 @@ class Product
       return $this->category = $id;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
       return $this->image;
     }
 
-    public function setImage(string $image)
+    public function setImage($image)
     {
       return $this->image = $image;
     }

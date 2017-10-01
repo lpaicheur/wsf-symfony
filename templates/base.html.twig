@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -22,6 +22,7 @@
             <a class="{{ app.request.attributes.get('_route') == 'home' ? 'active' : '' }}" href="{{ path('home') }}">Accueil</a>
           </li>
           <li><a class="{{ app.request.attributes.get('_route') == 'products' ? 'active' : '' }}" href="{{ path('products') }}">Produits</a></li>
+          <li><a class="{{ app.request.attributes.get('_route') == 'categories' ? 'active' : '' }}" href="{{ path('categories') }}">Categories</a></li>
         </ul>
       </nav>
     </div>
