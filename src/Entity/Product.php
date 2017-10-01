@@ -58,7 +58,7 @@ class Product
 
     /**
     * @Assert\NotBlank()
-    * @Assert\Image()
+
     * @ORM\Column(type="string")
     *
     * @var string

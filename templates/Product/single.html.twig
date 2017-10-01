@@ -11,15 +11,18 @@
     </div>
     <div class="mdl-cell mdl-cell--6-col">
       <h1>{{ product.name }}</h1>
-      <span class="price">{{ product.price / 100 }} €</span>
+      <span class="price">{{ (product.price / 100)|number_format(2, ',', '') }} €</span>
       <span class="mdl-chip">
         <a href="{{ path('singleCategory', {id: product.category.id}) }}" class="mdl-chip__text">{{product.category.name }}</a>
       </span>
+      <div class="description">{{ product.description | raw }}</div>
     </div>
-    <div class="description mdl-cell mdl-cell--12-col">{{ product.description | raw }}</div>
   </div>
   <div class="comments-space">
     <p class="header">Commentaires</p>
+    {% if product.comments is empty %}
+      <p class="comment">No comments</p>
+    {% endif %}
     {% for comment in product.comments %}
       <p class="comment">{{ comment.description }}</p>
     {% endfor %}
