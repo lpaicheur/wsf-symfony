@@ -3,7 +3,5 @@
 {% block body %}
   <h1>Home</h1>
   <a href="{{ path('products') }}">View products</a>
-  {% for product in products %}
-    <p>{{ product.name }}</p>
-  {% endfor %}
+  {% include 'product.html.twig' with {'products': products} %}
 {% endblock %}

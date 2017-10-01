@@ -41,13 +41,13 @@ class ProductsController extends Controller
 
       if ($form->isSubmitted() && $form->isValid()) {
         $product = $form->getData();
-        $file = $product->getImage();
-        $fileName = md5(uniqid()).'.'.$file->guessExtension();
-        $file->move(
-            $this->getParameter('kernel.root_dir') . '/../public/uploads',
-            $fileName
-        );
-        $product->setImage($fileName);
+        // $file = $product->getImage();
+        // $fileName = md5(uniqid()).'.'.$file->guessExtension();
+        // $file->move(
+        //     $this->getParameter('kernel.root_dir') . '/../public/uploads',
+        //     $fileName
+        // );
+        // $product->setImage($fileName);
         $manager = $this->getDoctrine()->getManager();
         $manager->persist($product);
         $manager->flush();
