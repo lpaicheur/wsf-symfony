@@ -22,8 +22,6 @@
         "symfony/yaml": "^3.3",
         "symfony/dotenv": "^3.3"
     },
-    "require-dev": {
-    },
     "config": {
         "preferred-install": {
             "*": "dist"
