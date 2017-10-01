@@ -5,11 +5,19 @@
 {% block body %}
 <div class="single-product">
   <a href="{{ path('products') }}" class="back">← Products</a>
-  <h1>{{ product.name }}</h1>
-  <img src="/uploads/{{ product.image }}" />
-  <span>Category: {{product.category }}</span>
-  <span class="price">{{ product.price / 100 }} €</span>
-  <p class="description">{{ product.description | raw }}</p>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--6-col">
+      <img src="/uploads/{{ product.image }}" />
+    </div>
+    <div class="mdl-cell mdl-cell--6-col">
+      <h1>{{ product.name }}</h1>
+      <span class="price">{{ product.price / 100 }} €</span>
+      <span class="mdl-chip">
+        <a href="{{ path('singleCategory', {id: product.category.id}) }}" class="mdl-chip__text">{{product.category.name }}</a>
+      </span>
+      <div class="description">{{ product.description | raw }}</div>
+    </div>
+  </div>
   {% for comment in product.comments %}
     <p>{{ comment.description }}</p>
   {% endfor %}
