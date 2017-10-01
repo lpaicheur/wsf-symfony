@@ -14,15 +14,19 @@
   <header>
     <div class="container">
         <a href="{{ path('home') }}">
-          <span class="logo">My shop</span>
+          <span class="logo">Super Shop</span>
         </a>
       <nav>
         <ul>
           <li>
             <a class="{{ app.request.attributes.get('_route') == 'home' ? 'active' : '' }}" href="{{ path('home') }}">Accueil</a>
           </li>
-          <li><a class="{{ app.request.attributes.get('_route') == 'products' ? 'active' : '' }}" href="{{ path('products') }}">Produits</a></li>
-          <li><a class="{{ app.request.attributes.get('_route') == 'categories' ? 'active' : '' }}" href="{{ path('categories') }}">Categories</a></li>
+          <li>
+            <a class="{{ app.request.attributes.get('_route') == 'products' ? 'active' : '' }}" href="{{ path('products') }}">Produits</a>
+          </li>
+          <li>
+            <a class="{{ app.request.attributes.get('_route') == 'categories' ? 'active' : '' }}" href="{{ path('categories') }}">Categories</a>
+          </li>
         </ul>
       </nav>
     </div>
