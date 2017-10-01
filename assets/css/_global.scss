@@ -25,8 +25,13 @@ li {
   list-style-type: none;
 }
 
+p {
+  font-size: 1.2rem;
+}
+
 main {
   max-width: $max-width;
   padding: 0 1rem;
+  padding-bottom: 2rem;
   margin: auto;
 }

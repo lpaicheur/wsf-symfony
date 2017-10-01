@@ -1,17 +1,38 @@
 {% extends "base.html.twig" %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
 {% block body %}
 <div class="single-product">
   <a href="{{ path('products') }}" class="back">← Products</a>
-  <h1>{{ product.name }}</h1>
-  <img src="/uploads/{{ product.image }}" />
-  <span>Category: {{product.category }}</span>
-  <span class="price">{{ product.price / 100 }} €</span>
-  <p class="description">{{ product.description | raw }}</p>
-  {% for comment in product.comments %}
-    <p>{{ comment.description }}</p>
-  {% endfor %}
-  {{ form_start(form) }}
-  {{ form_widget(form) }}
-  {{ form_end(form) }}
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--6-col">
+      <img src="/uploads/{{ product.image }}" />
+    </div>
+    <div class="mdl-cell mdl-cell--6-col">
+      <h1>{{ product.name }}</h1>
+      <span class="price">{{ product.price / 100 }} €</span>
+      <span class="mdl-chip">
+        <a href="{{ path('singleCategory', {id: product.category.id}) }}" class="mdl-chip__text">{{product.category.name }}</a>
+      </span>
+    </div>
+    <div class="description mdl-cell mdl-cell--12-col">{{ product.description | raw }}</div>
+  </div>
+  <div class="comments-space">
+    <p class="header">Commentaires</p>
+    {% for comment in product.comments %}
+      <p class="comment">{{ comment.description }}</p>
+    {% endfor %}
+  </div>
+  <div class="comment-form">
+    <p class="header">Ajouter un commentaire</p>
+    {{ form_start(form) }}
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      {{ form_widget(form.description, {'attr': {'class': 'mdl-textfield__input'}}) }}
+      {{ form_label(form.description, null, {'label_attr': {'class': 'mdl-textfield__label'}}) }}
+    </div>
+    {{ form_widget(form.submit, {'attr': { 'class': 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' }}) }}
+    {{ form_end(form) }}
+  </div>
 </div>
 {% endblock %}

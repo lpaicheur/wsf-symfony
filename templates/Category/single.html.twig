@@ -1,4 +1,7 @@
 {% extends "base.html.twig" %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
 {% block body %}
 <div class="single-category">
   <a href="{{ path('categories') }}" class="back">← Categories</a>
