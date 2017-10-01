@@ -2,6 +2,8 @@
 
 {% block body %}
   <h1>Home</h1>
-  <a href="{{ path('products') }}">View products</a>
   {% include 'product.html.twig' with {'products': products} %}
+  <a href="{{ path('products') }}" class="mdl-button mdl-js-button mdl-button--raised">
+      View all products
+  </a>
 {% endblock %}
