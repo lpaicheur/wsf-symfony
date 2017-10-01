@@ -21,7 +21,7 @@
   <div class="comments-space">
     <p class="header">Commentaires</p>
     {% if product.comments is empty %}
-      <p class="comment">No comments</p>
+      <p class="comment">Aucun commentaire</p>
     {% endif %}
     {% for comment in product.comments %}
       <p class="comment">{{ comment.description }}</p>
