@@ -1,9 +1,9 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-  <h1>Home</h1>
-  {% include 'product.html.twig' with {'products': products} %}
+  <h1>Accueil</h1>
+  {% include 'Product/base.html.twig' with {'products': products} %}
   <a href="{{ path('products') }}" class="mdl-button mdl-js-button mdl-button--raised">
-      View all products
+      Voir tous les produits
   </a>
 {% endblock %}

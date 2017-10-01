@@ -22,7 +22,7 @@ class CategoriesController extends Controller
             ->getRepository(Category::class)
             ->findAll();
 
-        return $this->render('categories.html.twig', array(
+        return $this->render('Category/list.html.twig', array(
             'categories' => $categories,
         ));
     }
@@ -40,7 +40,7 @@ class CategoriesController extends Controller
           throw new NotFoundHttpException('Page not found');
         }
 
-        return $this->render('singleCategory.html.twig', array(
+        return $this->render('Category/single.html.twig', array(
             'category' => $categories[0],
         ));
     }
