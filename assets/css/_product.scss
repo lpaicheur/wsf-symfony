@@ -28,4 +28,49 @@
     font-size: 1.4rem;
     margin: $spacing-unit 0;
   }
+
+  .comments-space {
+    p.header {
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    .comment {
+      color: #a9a9a9;
+    }
+  }
+
+  .comment-form {
+    p.header {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+    label.mdl-textfield__label {
+      font-size: 1.2rem;
+    }
+    textarea,
+    button {
+      display: block;
+    }
+  }
+}
+
+.product-card {
+  & > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  h2.mdl-card__title-text {
+    color: #000000;
+    margin-bottom: $spacing-unit;
+  }
+
+  .mdl-chip {
+    background-color: red;
+    color: #ffffff;
+  }
 }

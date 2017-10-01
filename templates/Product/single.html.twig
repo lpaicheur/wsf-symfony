@@ -15,14 +15,24 @@
       <span class="mdl-chip">
         <a href="{{ path('singleCategory', {id: product.category.id}) }}" class="mdl-chip__text">{{product.category.name }}</a>
       </span>
-      <div class="description">{{ product.description | raw }}</div>
     </div>
+    <div class="description mdl-cell mdl-cell--12-col">{{ product.description | raw }}</div>
   </div>
-  {% for comment in product.comments %}
-    <p>{{ comment.description }}</p>
-  {% endfor %}
-  {{ form_start(form) }}
-  {{ form_widget(form) }}
-  {{ form_end(form) }}
+  <div class="comments-space">
+    <p class="header">Commentaires</p>
+    {% for comment in product.comments %}
+      <p class="comment">{{ comment.description }}</p>
+    {% endfor %}
+  </div>
+  <div class="comment-form">
+    <p class="header">Ajouter un commentaire</p>
+    {{ form_start(form) }}
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      {{ form_widget(form.description, {'attr': {'class': 'mdl-textfield__input'}}) }}
+      {{ form_label(form.description, null, {'label_attr': {'class': 'mdl-textfield__label'}}) }}
+    </div>
+    {{ form_widget(form.submit, {'attr': { 'class': 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' }}) }}
+    {{ form_end(form) }}
+  </div>
 </div>
 {% endblock %}
