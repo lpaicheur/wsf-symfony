@@ -3,13 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Category;
-// use App\Form\ProductType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class CategoriesController extends Controller
 {
