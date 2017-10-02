@@ -24,132 +24,128 @@ class Product
   {
       return $this->name;
   }
-    /**
-    * @ORM\Column(type="integer")
-    * @ORM\Id
-    * @ORM\GeneratedValue(strategy="AUTO")
-    */
-    private $id;
 
-    /**
-    * @Assert\NotBlank()
-    * @ORM\Column(type="string", length=100)
-    */
-    private $name;
+  /**
+  * @ORM\Column(type="integer")
+  * @ORM\Id
+  * @ORM\GeneratedValue(strategy="AUTO")
+  */
+  private $id;
 
-    /**
-    * @Assert\NotBlank()
-    * @ORM\Column(type="integer")
-    */
-    private $price;
+  /**
+  * @Assert\NotBlank()
+  * @ORM\Column(type="string", length=100)
+  */
+  private $name;
 
-    /**
-    * @Assert\NotBlank()
-    * @ORM\Column(type="text")
-    */
-    private $description;
+  /**
+  * @Assert\NotBlank()
+  * @ORM\Column(type="integer")
+  */
+  private $price;
 
-    /**
-    * @Assert\NotBlank()
-    * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
-    * @ORM\JoinColumn(name="category", referencedColumnName="id")
-    */
-    private $category;
+  /**
+  * @Assert\NotBlank()
+  * @ORM\Column(type="text")
+  */
+  private $description;
 
-    /**
-    * @Assert\NotBlank()
-    * @Assert\Image()
-    * @ORM\Column(type="string")
-    *
-    * @var string
-    */
-    private $image;
+  /**
+  * @Assert\NotBlank()
+  * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+  * @ORM\JoinColumn(name="category", referencedColumnName="id")
+  */
+  private $category;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="product")
-    */
-    private $comments;
+  /**
+  * @Assert\NotBlank()
+  * @Assert\Image()
+  * @ORM\Column(type="string")
+  *
+  * @var string
+  */
+  private $image;
 
-    /**
-    * @return int
-    */
-    public function getId(): ?int
-    {
-				return $this->id;
-    }
+  /**
+    * @ORM\OneToMany(targetEntity="Comment", mappedBy="product")
+  */
+  private $comments;
 
-    /**
-    * @return string
-    */
-    public function getName(): ?string
-    {
-				return $this->name;
-		}
+  /**
+  * @return int
+  */
+  public function getId(): ?int
+  {
+      return $this->id;
+  }
 
-		/**
-		* @param string $name
-		*/
-		public function setName(string $name)
-		{
-				$this->name = $name;
-		}
+  /**
+  * @return string
+  */
+  public function getName(): ?string
+  {
+      return $this->name;
+  }
 
-    /**
-    * @return string
-    */
-    public function getDescription(): ?string
-    {
-				return $this->description;
-    }
+  /**
+  * @param string $name
+  */
+  public function setName(string $name)
+  {
+      $this->name = $name;
+  }
 
-    public function setDescription(?string $description)
-    {
-      return $this->description = $description;
-    }
+  /**
+  * @return string
+  */
+  public function getDescription(): ?string
+  {
+      return $this->description;
+  }
 
-    /**
-    * @return int
-    */
-    public function getPrice(): ?int
-    {
-				return $this->price;
-    }
+  public function setDescription(?string $description)
+  {
+    return $this->description = $description;
+  }
 
-    public function setPrice(?int $price)
-    {
-      return $this->price = $price;
-    }
+  /**
+  * @return int
+  */
+  public function getPrice(): ?int
+  {
+      return $this->price;
+  }
 
-    /**
-    * @return int
-    */
-    public function getCategory()
-    {
-				return $this->category;
-    }
+  public function setPrice(?int $price)
+  {
+    return $this->price = $price;
+  }
 
-    public function setCategory($id)
-    {
-      return $this->category = $id;
-    }
+  /**
+  * @return int
+  */
+  public function getCategory()
+  {
+      return $this->category;
+  }
 
-    public function getImage()
-    {
-      return $this->image;
-    }
+  public function setCategory($id)
+  {
+    return $this->category = $id;
+  }
 
-    public function setImage($image)
-    {
-      return $this->image = $image;
-    }
+  public function getImage()
+  {
+    return $this->image;
+  }
 
-    public function getComments()
-    {
-      return $this->comments;
-    }
+  public function setImage($image)
+  {
+    return $this->image = $image;
+  }
 
-    // public function setComments($comments)
-    // {
-    //   return $this->comments = $comments;
-    // }
+  public function getComments()
+  {
+    return $this->comments;
+  }
 }
