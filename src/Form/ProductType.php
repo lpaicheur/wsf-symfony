@@ -14,21 +14,21 @@ class ProductType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-          ->add('name')
-          ->add('price')
-          ->add('description', CKEditorType::class)
-          ->add('category')
-          ->add('image', FileType::class)
-          ->add('submit', SubmitType::class)
-          ->getForm();
+      $builder
+        ->add('name')
+        ->add('price')
+        ->add('description', CKEditorType::class)
+        ->add('category')
+        ->add('image', FileType::class)
+        ->add('submit', SubmitType::class)
+        ->getForm();
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => Product::class,
-        ));
+      $resolver->setDefaults(array(
+          'data_class' => Product::class,
+      ));
     }
 }
 

@@ -12,17 +12,17 @@ class CommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-          ->add('description')
-          ->add('submit', SubmitType::class, array('label' => 'Commenter'))
-          ->getForm();
+      $builder
+        ->add('description')
+        ->add('submit', SubmitType::class, array('label' => 'Commenter'))
+        ->getForm();
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => Comment::class,
-        ));
+      $resolver->setDefaults(array(
+          'data_class' => Comment::class,
+      ));
     }
 }
 
