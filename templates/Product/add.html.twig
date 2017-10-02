@@ -3,7 +3,7 @@
 {% block title %}Ajout produit{% endblock %}
 
 {% block body %}
-  <h1>Ajouter un produit</h1>
+  <h1>{% block type %}Ajouter un produit{% endblock %}</h1>
   {{ form_start(form) }}
   {{ form_widget(form) }}
   {{ form_end(form) }}

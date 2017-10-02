@@ -58,7 +58,7 @@ class Product
 
     /**
     * @Assert\NotBlank()
-
+    * @Assert\Image()
     * @ORM\Column(type="string")
     *
     * @var string
@@ -102,7 +102,8 @@ class Product
 				return $this->description;
     }
 
-    public function setDescription(?string $description) {
+    public function setDescription(?string $description)
+    {
       return $this->description = $description;
     }
 
@@ -114,7 +115,8 @@ class Product
 				return $this->price;
     }
 
-    public function setPrice(?int $price) {
+    public function setPrice(?int $price)
+    {
       return $this->price = $price;
     }
 
@@ -126,7 +128,8 @@ class Product
 				return $this->category;
     }
 
-    public function setCategory($id) {
+    public function setCategory($id)
+    {
       return $this->category = $id;
     }
 
