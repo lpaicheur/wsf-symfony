@@ -60,6 +60,45 @@ class ProductsController extends Controller
   }
 
   /**
+  * @Route(path="/product/{id}/update", name="updateProduct")
+  */
+  public function updateProductAction(Request $request, $id)
+  {
+    $products = $this->get('doctrine')
+      ->getRepository(Product::class)
+      ->findById($id);
+
+    if(!$products) {
+      throw new NotFoundHttpException('Page not found');
+    }
+
+
+    $form = $this->createForm(ProductType::class, $products[0]);
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $product = $form->getData();
+      $file = $product->getNewImage();
+      $fileName = md5(uniqid()).'.'.$file->guessExtension();
+      $file->move(
+          $this->getParameter('kernel.root_dir') . '/../public/uploads',
+          $fileName
+      );
+      $product->setImage($fileName);
+      $manager = $this->getDoctrine()->getManager();
+      $manager->persist($product);
+      $manager->flush();
+
+      return $this->redirectToRoute('products');
+    }
+
+    return $this->render('Product/add.html.twig', array(
+        'form' => $form->createView(),
+    ));
+  }
+
+  /**
   * @Route(path="/product/{id}", name="singleProduct")
   */
   public function singleProductAction($id, Request $request)

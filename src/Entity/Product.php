@@ -58,13 +58,16 @@ class Product
   private $category;
 
   /**
-  * @Assert\NotBlank()
-  * @Assert\Image()
   * @ORM\Column(type="string")
   *
   * @var string
   */
   private $image;
+
+  /**
+  * @Assert\Image()
+  */
+  private $newImage;
 
   /**
     * @ORM\OneToMany(targetEntity="Comment", mappedBy="product")
@@ -140,6 +143,16 @@ class Product
   }
 
   public function setImage($image)
+  {
+    return $this->image = $image;
+  }
+
+  public function getNewImage()
+  {
+    return $this->newImage;
+  }
+
+  public function setNewImage($image)
   {
     return $this->image = $image;
   }

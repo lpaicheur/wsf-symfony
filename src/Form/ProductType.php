@@ -19,7 +19,7 @@ class ProductType extends AbstractType
         ->add('price')
         ->add('description', CKEditorType::class)
         ->add('category')
-        ->add('image', FileType::class)
+        ->add('newImage', FileType::class)
         ->add('submit', SubmitType::class)
         ->getForm();
     }
